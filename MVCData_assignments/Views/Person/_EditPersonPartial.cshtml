@@ -1,0 +1,44 @@
+﻿@model MVCData_assignments.Models.Person
+
+<div id="personEditCard@(Model.Id)" class="card text-light bg-secondary  mb-3" style="min-width: 22rem;min-height: 18rem;
+">
+    <div class="card-header">Edit information</div>
+    <div class="card-body">
+        <form id="UpdateForm" onsubmit="UpdatePerson('@(Model.Id)')" method="post" data-target="personViewCard@(Model.Id)" asp-controller="Person" asp-action="Update">
+
+            <h5 class="card-title d-flex flex-row">
+                    @Html.DisplayNameFor(model => model.Name)
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </h5>
+            <table class="card-text">
+                <tr>
+                    <td class="col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.City):&nbsp;
+                    </td>
+                    <td>
+                        @*@Html.TextBoxFor(model => model.City)*@ 
+
+                        <input asp-for="City" class="form-control form-control-sm h-75" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.Phonenumber)&nbsp;
+                    </td>
+                    <td>
+                        @*@Html.TextBoxFor(model => model.Phonenumber, new { @class = "form-control form-control-sm" });*@
+                        <input asp-for="Phonenumber" class="form-control form-control-sm h-50" />
+                        <span asp-validation-for="Phonenumber" class="text-danger"></span>
+                    </td>
+                </tr>
+            </table>
+            <div class="d-flex justify-content-end mt-sm-3">
+                <input type="button" onclick="location.href='@Url.Action("Index", "Person")'" class="btn btn-danger text-light btn-sm  mr-sm-2" value="Cancel">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="submit" value="Save" id="btnSave" class="btn btn-warning btn-sm" />
+            </div>
+        </form>
+    </div>
+</div>
