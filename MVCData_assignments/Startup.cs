@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVCData_assignments.Models;
 using MVCData_assignments.Models.Data;
+using MVCData_assignments.Models.Database;
 using MVCData_assignments.Models.Services;
 
 namespace MVCData_assignments
@@ -28,8 +30,9 @@ namespace MVCData_assignments
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDistributedMemoryCache();
-            services.AddScoped<IPersonRepo, InMemoryPersonRepo>();
+            services.AddDbContext<PersonDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
+            //services.AddScoped<IPersonRepo, InMemoryPersonRepo>(); 
+            services.AddScoped<IPersonRepo, DatabasePersonRepo>();
 
             services.AddScoped<IPersonService, PersonService > ();
 
