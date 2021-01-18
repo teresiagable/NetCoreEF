@@ -13,19 +13,19 @@ namespace MVCData_assignments.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string City { get; set; }
+        public City City { get; set; }
 
         [Display(Name = "Phone no.")]
         public string Phonenumber { get; set; }
 
         public Person() { }
-        public Person(string name, string city, string phonenumber)
+        public Person(string name, City city, string phonenumber)
         {
             Name = name;
             City = city;
             Phonenumber = phonenumber;
         }
-        public Person(int id, string name, string city, string phonenumber) : this(name, city, phonenumber)         //que???
+        public Person(int id, string name, City city, string phonenumber) : this(name, city, phonenumber)         //que???
         {
             Id = id;
         }

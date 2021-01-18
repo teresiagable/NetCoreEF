@@ -15,6 +15,10 @@ namespace MVCData_assignments.Models.Database
         //DbSet<name of the class to be saved> "Name of the table"{get; set;}
         //DbSet tell us what to store as tables in the database
         public DbSet<Person> Persons { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+
+
 
 
 

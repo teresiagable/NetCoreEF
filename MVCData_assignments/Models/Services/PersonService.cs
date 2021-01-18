@@ -67,7 +67,7 @@ namespace MVCData_assignments.Models.Services
             returnList = filteredList;
 
             if (!string.IsNullOrEmpty(searchPhrase))
-                filteredList = _personRepo.Read().FindAll(p => p.City.ToLower().Contains(searchPhrase.ToLower()));
+                filteredList = _personRepo.Read().FindAll(p => p.City.Name.ToLower().Contains(searchPhrase.ToLower()));
 
             var templist = returnList.Concat(filteredList); //add list from city-filter to previous name-filter 
             returnList = templist.ToList();

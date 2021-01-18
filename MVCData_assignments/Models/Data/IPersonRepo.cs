@@ -7,7 +7,7 @@ namespace MVCData_assignments.Models.Data
 {
     public interface IPersonRepo
     {
-        Person Create(string name, string city, string phone );
+        Person Create(string name, City city, string phone);
         List<Person> Read();
         Person Read(int id);
         Person Update(Person person);

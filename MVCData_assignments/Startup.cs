@@ -29,13 +29,13 @@ namespace MVCData_assignments
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<PersonDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
+        {            
             //services.AddScoped<IPersonRepo, InMemoryPersonRepo>(); 
+            services.AddDbContext<PersonDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
             services.AddScoped<IPersonRepo, DatabasePersonRepo>();
-
             services.AddScoped<IPersonService, PersonService > ();
-
+            services.AddScoped<ICountryRepo, DatabaseCountryRepo>();
+            services.AddScoped<ICountryService, CountryService>();
             services.AddMvc(); //add MVC so we can use it
 
 

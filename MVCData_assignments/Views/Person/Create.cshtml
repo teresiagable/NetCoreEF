@@ -1,8 +1,6 @@
 ﻿@model MVCData_assignments.Models.PersonCreateModel
 
-@{
-    ViewData["Title"] = "Create new person";
-}
+@{ ViewData["Title"] = "Create new person"; }
 
 <h1>Create</h1>
 <hr />
@@ -17,7 +15,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
+
+                <select asp-for="City" class="form-control">
+                    @foreach (var item in Model.Cities)
+                    {
+                        <option value=@item.Id>@item.Name</option>
+        }
+                </select>
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">

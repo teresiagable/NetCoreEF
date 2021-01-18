@@ -13,8 +13,11 @@ namespace MVCData_assignments.Models
         public string Name { get; set; }
 
         [Required]
-        [StringLength(32, ErrorMessage = "The city name is too long", MinimumLength = 1)]
-        public string City { get; set; }
+        public City City { get; set; }
+
+        //[StringLength(32, ErrorMessage = "The city name is too long", MinimumLength = 1)]
+        public List<City> Cities { get; set; }
         public string Phonenumber { get; set; }
     }
 }
+

@@ -13,7 +13,7 @@ namespace MVCData_assignments.Models.Data
         {
             _personDbContext = personDbContext;
         }
-        public Person Create(string name, string city, string phone)
+        public Person Create(string name, City city, string phone)
         {
             Person person = new Person(name, city, phone);
             _personDbContext.Persons.Add(person);

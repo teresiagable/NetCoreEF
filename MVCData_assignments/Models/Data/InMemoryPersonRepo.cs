@@ -12,7 +12,7 @@ namespace MVCData_assignments.Models.Data
         private static List<Person> personList = new List<Person>();
 
 
-        public Person Create(string name, string city, string phone)
+        public Person Create(string name, City city, string phone)
         {
             {
                 int newId = ++PersonId;
